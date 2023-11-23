@@ -3,7 +3,6 @@
     "description": "JCORE Ydin (JYDIN), the core module for JCORE",
     "type": "library",
     "license": "GPL-2.0-only",
-    "version": "3.0.0",
     "autoload": {
         "psr-4": {
             "Jcore\\Ydin\\": "classes/"
