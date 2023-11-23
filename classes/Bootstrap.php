@@ -2,6 +2,7 @@
 
 namespace Jcore\Ydin;
 
+use Jcore\Ydin\Settings\Customizer;
 use Timber\Timber;
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -22,6 +23,7 @@ class Bootstrap {
 	 */
 	private function __construct() {
 		Timber::init();
+		Customizer::init();
 	}
 
 	/**
