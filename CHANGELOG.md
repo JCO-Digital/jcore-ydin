@@ -1,10 +1,11 @@
-# 3.2.0 (2023-11-23)
+# 3.3.0 (2023-11-23)
 
 
 ### Bug Fixes
 
 * **composer:** Removed version and only use the tagging for versioning. 💚 ([d5ec970](https://github.com/JCO-Digital/jcore-ydin/commit/d5ec9707760a498b487e6dfd0b6456b73be8fae9))
 * Use push-protected to push the actual changes. 🐛 ([bd4c000](https://github.com/JCO-Digital/jcore-ydin/commit/bd4c000ab820fb29a9da94079b8108c31a4cfa6a))
+* use tags as well when pushing the changes. 🐛 ([6846775](https://github.com/JCO-Digital/jcore-ydin/commit/68467757237c48e2e885c926a08a8ca09334ee93))
 * **ydin-blocks:** Updated the blocks methods, (also test release action) ⚗️ ([1386335](https://github.com/JCO-Digital/jcore-ydin/commit/138633533722fe663fda26a6e2cd8a122218bba0))
 
 
