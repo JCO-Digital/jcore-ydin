@@ -126,7 +126,7 @@ abstract class Block {
 	 *
 	 * @return void
 	 */
-	public function register_block(): void {
+	final public function register_block(): void {
 		if ( function_exists( 'acf_add_local_field_group' ) && function_exists( 'acf_register_block_type' ) ) {
 			// Here is where we register the block using acfs block registering function.
 
@@ -200,7 +200,7 @@ abstract class Block {
 	 *
 	 * @return string
 	 */
-	public static function get_block_name( string $replacement = '-' ): string {
+	final public static function get_block_name( string $replacement = '-' ): string {
 		// Just lowercase the name as this is an internal representation.
 		$name = strtolower( static::$name );
 
@@ -212,7 +212,7 @@ abstract class Block {
 	 *
 	 * @return string
 	 */
-	public static function get_block_title(): string {
+	final public static function get_block_title(): string {
 		// Replace _ with space for a more friendly name.
 		return str_replace( '_', ' ', static::$name );
 	}
@@ -227,7 +227,7 @@ abstract class Block {
 	 *
 	 * @return void
 	 */
-	public function render_callback( array $block, string $content = '', bool $is_preview = false ): void {
+	final public function render_callback( array $block, string $content = '', bool $is_preview = false ): void {
 		$context = Timber::context();
 		// Append semantic blockname to the block classlist.
 		if ( ! empty( $block['className'] ) ) {
@@ -256,7 +256,7 @@ abstract class Block {
 	 *
 	 * @return void
 	 */
-	protected function load_script( string $name, string $file ): void {
+	final protected function load_script( string $name, string $file ): void {
 		if ( ! empty( $name ) && ! empty( $file ) ) {
 			Assets::script_register( $name, $file );
 			wp_enqueue_script( $name );
@@ -270,7 +270,7 @@ abstract class Block {
 	 *
 	 * @return array
 	 */
-	protected function get_templates( array $context ): array {
+	final protected function get_templates( array $context ): array {
 		$templates = array(
 			'blocks/block-' . static::get_block_name( '_' ) . '.twig',
 		);
@@ -288,7 +288,7 @@ abstract class Block {
 	 *
 	 * @return array
 	 */
-	protected function populate_context( array $context, array $fields ): array {
+	final protected function populate_context( array $context, array $fields ): array {
 		$context['fields'] = $fields;
 		return $context;
 	}
