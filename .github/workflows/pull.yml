@@ -1,12 +1,16 @@
-name: CI
+name: Validate Pull Request
 
-on: [ push, pull_request ]
+on: [ pull_request ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Commitsar check
+        uses: aevea/commitsar@v0.20.2
+
       - uses: php-actions/composer@v6
         with:
           command: validate
