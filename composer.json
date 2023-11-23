@@ -1,0 +1,33 @@
+{
+    "name": "jcore/ydin",
+    "description": "JCORE Ydin (JYDIN), the core module for JCORE",
+    "type": "library",
+    "license": "GPLv2",
+    "autoload": {
+        "psr-4": {
+            "Jcore\\Ydin\\": "classes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "JCO Digital",
+            "email": "support@jco.fi"
+        }
+    ],
+    "require": {
+        "timber/timber": "^2.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "require-dev": {
+        "php-stubs/wordpress-stubs": "^6.4",
+        "squizlabs/php_codesniffer": "^3.7",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "wp-coding-standards/wpcs": "3.0.0",
+        "phpcsstandards/phpcsutils": "^1.0"
+    }
+}
