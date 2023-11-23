@@ -28,6 +28,7 @@ jobs:
         with:
           token: ${{ secrets.MASTER_PAT }}
           branch: master
+          tags: true
           unprotect_reviews: true
 
 
