@@ -2,7 +2,7 @@
     "name": "jcore/ydin",
     "description": "JCORE Ydin (JYDIN), the core module for JCORE",
     "type": "library",
-    "license": "GPLv2",
+    "license": "GPL-2.0-only",
     "autoload": {
         "psr-4": {
             "Jcore\\Ydin\\": "classes/"
