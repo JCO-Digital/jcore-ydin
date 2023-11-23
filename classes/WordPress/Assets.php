@@ -1,8 +1,15 @@
 <?php
 
-namespace Jcore\Ydin\Assets;
+namespace Jcore\Ydin\WordPress;
 
-class AssetManager {
+/**
+ * Utility functions for handling assets (registering them)
+ *
+ * @since 3.0.0
+ * @package Jcore\Ydin\WordPress
+ */
+class Assets {
+
 	/**
 	 * Register script wrapper.
 	 *
@@ -39,7 +46,7 @@ class AssetManager {
 	 *
 	 * @param string $name Style name.
 	 * @param string $file Filename.
-	 * @param array $dependencies Dependencies.
+	 * @param array  $dependencies Dependencies.
 	 * @param string $version Optional version number.
 	 */
 	public static function style_register( string $name, string $file, array $dependencies = array(), string $version = '' ) {
