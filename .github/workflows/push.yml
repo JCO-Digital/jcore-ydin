@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - 'push-action/**'
 
 jobs:
   release:
@@ -17,8 +18,8 @@ jobs:
       - name: Conventional Changelog Action
         uses: TriPSs/conventional-changelog-action@v3
         with:
-          github-token: ${{ secrets.github_token }}
-          skip-version-file: true
-          skip-commit: true
+          github-token: ${{ secrets.MASTER_PAT }}
+          version-file: './version.json'
+          fallback-version: 3.1.0
 
 
