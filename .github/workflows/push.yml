@@ -15,6 +15,7 @@ jobs:
         uses: TriPSs/conventional-changelog-action@v3
         with:
           github-token: ${{ secrets.github_token }}
-          version-file: 'composer.json'
+          skip-version-file: true
+          fallback-version: 3.0.0
 
 
