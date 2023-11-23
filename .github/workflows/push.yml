@@ -17,7 +17,7 @@ jobs:
       - name: Conventional Changelog Action
         uses: TriPSs/conventional-changelog-action@v3
         with:
-          github-token: ${{ secrets.github_token }}
+          github-token: ${{ secrets.MASTER_PAT }}
           skip-version-file: true
           fallback-version: 3.0.0
 
