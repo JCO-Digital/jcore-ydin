@@ -1,8 +1,8 @@
-<?php
+<?php // phpcs:ignore
 /**
- * jcore default block class
+ * JCORE default block class
  *
- * @package jcoreBlocks
+ * @package Jcore\Ydin\Blocks
  */
 
 namespace Jcore\Ydin\Blocks;
