@@ -31,7 +31,7 @@ class Bootstrap {
 	 *
 	 * @return Bootstrap
 	 */
-	public static function get_instance(): Bootstrap {
+	public static function init(): Bootstrap {
 		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
