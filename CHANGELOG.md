@@ -1,4 +1,13 @@
-# 3.3.0 (2023-11-23)
+## [3.3.1](https://github.com/JCO-Digital/jcore-ydin/compare/v3.3.0...v3.3.1) (2023-11-28)
+
+
+### Bug Fixes
+
+* Initialized $instance, changed $version default from null to '' ([8995a95](https://github.com/JCO-Digital/jcore-ydin/commit/8995a95f7a369c9390adc741bcb16ec7eac83103))
+
+
+
+# [3.3.0](https://github.com/JCO-Digital/jcore-ydin/compare/976a6167c008fc60078f81f17132c312bccad0c0...v3.3.0) (2023-11-23)
 
 
 ### Bug Fixes
