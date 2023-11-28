@@ -16,7 +16,7 @@ class Bootstrap {
 	 *
 	 * @var Bootstrap|null
 	 */
-	private static ?Bootstrap $instance;
+	private static ?Bootstrap $instance = null;
 
 	/**
 	 * Bootstrap constructor.

@@ -16,12 +16,12 @@ class Assets {
 	 * @param string      $name Script name.
 	 * @param string      $file Filename.
 	 * @param array       $dependencies Dependencies.
-	 * @param string|null $version Optional version number.
+	 * @param string $version Optional version number.
 	 * @param true[]      $args Arguments passed to the script register.
 	 *
 	 * @see https://developer.wordpress.org/reference/functions/wp_register_script/ wp_register_script for more info on the arguments.
 	 */
-	public static function script_register( string $name, string $file, array $dependencies = array(), string $version = null, array $args = array( 'in_footer' => true ) ): void {
+	public static function script_register( string $name, string $file, array $dependencies = array(), string $version = '', array $args = array( 'in_footer' => true ) ): void {
 		global $wp_version;
 		$info = self::get_file_info( $file, $version );
 
