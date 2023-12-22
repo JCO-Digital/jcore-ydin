@@ -13,11 +13,11 @@ class Assets {
 	/**
 	 * Register script wrapper.
 	 *
-	 * @param string      $name Script name.
-	 * @param string      $file Filename.
-	 * @param array       $dependencies Dependencies.
+	 * @param string $name Script name.
+	 * @param string $file Filename.
+	 * @param array  $dependencies Dependencies.
 	 * @param string $version Optional version number.
-	 * @param true[]      $args Arguments passed to the script register.
+	 * @param true[] $args Arguments passed to the script register.
 	 *
 	 * @see https://developer.wordpress.org/reference/functions/wp_register_script/ wp_register_script for more info on the arguments.
 	 */
@@ -46,7 +46,7 @@ class Assets {
 	 *
 	 * @param string $name Style name.
 	 * @param string $file Filename.
-	 * @param array  $dependencies Dependencies.
+	 * @param array $dependencies Dependencies.
 	 * @param string $version Optional version number.
 	 */
 	public static function style_register( string $name, string $file, array $dependencies = array(), string $version = '' ) {
@@ -88,7 +88,8 @@ class Assets {
 					'path' => self::join_path( get_template_directory(), $file ),
 					'uri'  => self::join_path( get_template_directory_uri(), $file ),
 				),
-			) as $location ) {
+			) as $location
+		) {
 			if ( file_exists( $location['path'] ) ) {
 				$version .= filemtime( $location['path'] );
 
@@ -99,6 +100,7 @@ class Assets {
 				);
 			}
 		}
+
 		return false;
 	}
 
