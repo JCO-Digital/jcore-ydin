@@ -1,3 +1,12 @@
+## [3.3.2](https://github.com/JCO-Digital/jcore-ydin/compare/v3.3.1...v3.3.2) (2024-01-08)
+
+
+### Bug Fixes
+
+* Formatting ([9908841](https://github.com/JCO-Digital/jcore-ydin/commit/990884130feaabb41fbd527399a4627948cc8f86))
+
+
+
 ## [3.3.1](https://github.com/JCO-Digital/jcore-ydin/compare/v3.3.0...v3.3.1) (2023-11-28)
 
 
