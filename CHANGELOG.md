@@ -1,3 +1,12 @@
+# [3.4.0](https://github.com/JCO-Digital/jcore-ydin/compare/v3.3.2...v3.4.0) (2024-01-18)
+
+
+### Features
+
+* **make:** Added make file ([ba8ef67](https://github.com/JCO-Digital/jcore-ydin/commit/ba8ef67a14c04b538cdc549f3e5202c54eaec3a5))
+
+
+
 ## [3.3.2](https://github.com/JCO-Digital/jcore-ydin/compare/v3.3.1...v3.3.2) (2024-01-08)
 
 
