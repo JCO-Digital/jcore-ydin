@@ -2,13 +2,16 @@
 
 namespace Jcore\Ydin\Settings;
 
+use RuntimeException;
+use WP_Customize_Manager;
 use WP_Customize_Media_Control;
 
 /**
  * The Customizer class is used to initialize the Customizer.
- * Hook into the jcore_init_customizer_fields filter to add fields.
+ * Use the add_section method to add a section to the customizer.
  *
  * @since 3.0.0
+ * @since 3.5.0 Added the add_section method.
  */
 class Customizer extends Option {
 
@@ -32,6 +35,7 @@ class Customizer extends Option {
 	 * @return void
 	 */
 	public static function init(): void {
+		static::$fields = array();
 		parent::init();
 		add_action( 'customize_register', '\Jcore\Ydin\Settings\Customizer::customize_register' );
 	}
@@ -42,9 +46,32 @@ class Customizer extends Option {
 	 * @return array[]
 	 */
 	protected static function get_fields(): array {
-		return apply_filters(
-			'jcore_init_customizer_fields',
-			array()
+		return static::$fields;
+	}
+
+	/**
+	 * Add a section to the fields array.
+	 *
+	 * @param string $name        Section name.
+	 * @param string $title       Section title.
+	 * @param string $description Section description.
+	 * @param array  $fields      Section fields.
+	 *
+	 * @return void
+	 *
+	 * @throws RuntimeException When customizer has already been initialized if this is called.
+	 */
+	public static function add_section( string $name, string $title, string $description, array $fields ): void {
+		if ( did_action( 'customize_register' ) ) {
+			throw new RuntimeException( 'Customizer fields cannot be added after the customizer has been initialized.' );
+		}
+		if ( ! empty( $fields[ $name ] ) ) {
+			$fields[ $name ]['fields'] = array_merge( $fields[ $name ]['fields'], $fields );
+		}
+		static::$fields[ $name ] = array(
+			'title'       => $title,
+			'description' => $description,
+			'fields'      => $fields,
 		);
 	}
 

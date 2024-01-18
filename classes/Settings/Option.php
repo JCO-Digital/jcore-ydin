@@ -21,7 +21,7 @@ abstract class Option {
 	 * Initialize everything.
 	 */
 	public static function init(): void {
-		static::$fields = apply_filters( 'jcore_init_fields', static::get_fields() );
+		static::$fields = static::get_fields();
 	}
 
 	/**
