@@ -21,7 +21,7 @@ abstract class Option {
 	 * Initialize everything.
 	 */
 	public static function init(): void {
-		static::$fields = apply_filters( 'jcore_init_fields', static::get_fields() );
+		static::$fields = static::get_fields();
 	}
 
 	/**
@@ -86,12 +86,13 @@ abstract class Option {
 	/**
 	 * Check value and return it if available.
 	 *
-	 * @param string      $group Group name.
+	 * @param string $group Group name.
 	 * @param string|null $field Field name.
+	 * @param mixed|null $default The default value to return.
 	 *
 	 * @return mixed
 	 */
-	public static function get( string $group, string $field = null ): mixed {
+	public static function get( string $group, string $field = null, mixed $default = null ): mixed {
 		if ( null === $field ) {
 			// Get the entire group.
 			if ( static::check_group( $group, true ) ) {
@@ -101,7 +102,7 @@ abstract class Option {
 			return static::$data[ $group ][ $field ];
 		}
 
-		return null;
+		return $default;
 	}
 
 	/**

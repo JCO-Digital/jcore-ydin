@@ -2,13 +2,16 @@
 
 namespace Jcore\Ydin\Settings;
 
+use RuntimeException;
+use WP_Customize_Manager;
 use WP_Customize_Media_Control;
 
 /**
  * The Customizer class is used to initialize the Customizer.
- * Hook into the jcore_init_customizer_fields filter to add fields.
+ * Use the add_section method to add a section to the customizer.
  *
  * @since 3.0.0
+ * @since 3.5.0 Added the add_section method.
  */
 class Customizer extends Option {
 
@@ -32,6 +35,7 @@ class Customizer extends Option {
 	 * @return void
 	 */
 	public static function init(): void {
+		static::$fields = array();
 		parent::init();
 		add_action( 'customize_register', '\Jcore\Ydin\Settings\Customizer::customize_register' );
 	}
@@ -42,9 +46,32 @@ class Customizer extends Option {
 	 * @return array[]
 	 */
 	protected static function get_fields(): array {
-		return apply_filters(
-			'jcore_init_customizer_fields',
-			array()
+		return static::$fields;
+	}
+
+	/**
+	 * Add a section to the fields array.
+	 *
+	 * @param string $name        Section name.
+	 * @param string $title       Section title.
+	 * @param string $description Section description.
+	 * @param array  $fields      Section fields.
+	 *
+	 * @return void
+	 *
+	 * @throws RuntimeException When customizer has already been initialized if this is called.
+	 */
+	public static function add_section( string $name, string $title, string $description, array $fields ): void {
+		if ( did_action( 'customize_register' ) ) {
+			throw new RuntimeException( 'Customizer fields cannot be added after the customizer has been initialized.' );
+		}
+		if ( ! empty( $fields[ $name ] ) ) {
+			$fields[ $name ]['fields'] = array_merge( $fields[ $name ]['fields'], $fields );
+		}
+		static::$fields[ $name ] = array(
+			'title'       => $title,
+			'description' => $description,
+			'fields'      => $fields,
 		);
 	}
 
@@ -168,11 +195,11 @@ class Customizer extends Option {
 	 */
 	public static function get_styles(): string {
 		$style = ":root {\n";
-		foreach ( static::get( 'color' ) as $item => $value ) {
+		foreach ( static::get( 'color', null, array() ) as $item => $value ) {
 			$style .= static::add_style( "--bs-$item: $value" );
 		}
 		foreach ( array( 'navigation_desktop', 'navigation_mobile', 'site' ) as $type ) {
-			foreach ( static::get( $type ) as $key => $value ) {
+			foreach ( static::get( $type, null, array() ) as $key => $value ) {
 				if ( str_ends_with( $key, '_color' ) ) {
 					$name  = str_replace( '_', '-', 'jcore-' . $type . '-' . $key );
 					$color = static::get( 'color', $value ) ?? 'transparent';
@@ -201,9 +228,16 @@ class Customizer extends Option {
 		return $style . self::get_color_classes( true );
 	}
 
-	public static function get_color_classes( $admin = false ): string {
+	/**
+	 * Gets the classes for the colors.
+	 *
+	 * @param bool $admin Should admin classes be included.
+	 *
+	 * @return string
+	 */
+	public static function get_color_classes( bool $admin = false ): string {
 		$style = '';
-		foreach ( static::get( 'color' ) as $item => $value ) {
+		foreach ( static::get( 'color', null, array() ) as $item => $value ) {
 			$style .= "\n.has-$item-background-color { background-color: var(--bs-$item) }";
 			if ( $admin ) {
 				$fill   = self::is_light( $value ) ? 'dark' : 'light';
