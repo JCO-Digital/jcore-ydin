@@ -168,11 +168,11 @@ class Customizer extends Option {
 	 */
 	public static function get_styles(): string {
 		$style = ":root {\n";
-		foreach ( static::get( 'color' ) as $item => $value ) {
+		foreach ( static::get( 'color', null, array() ) as $item => $value ) {
 			$style .= static::add_style( "--bs-$item: $value" );
 		}
 		foreach ( array( 'navigation_desktop', 'navigation_mobile', 'site' ) as $type ) {
-			foreach ( static::get( $type ) as $key => $value ) {
+			foreach ( static::get( $type, null, array() ) as $key => $value ) {
 				if ( str_ends_with( $key, '_color' ) ) {
 					$name  = str_replace( '_', '-', 'jcore-' . $type . '-' . $key );
 					$color = static::get( 'color', $value ) ?? 'transparent';
@@ -201,9 +201,16 @@ class Customizer extends Option {
 		return $style . self::get_color_classes( true );
 	}
 
-	public static function get_color_classes( $admin = false ): string {
+	/**
+	 * Gets the classes for the colors.
+	 *
+	 * @param bool $admin Should admin classes be included.
+	 *
+	 * @return string
+	 */
+	public static function get_color_classes( bool $admin = false ): string {
 		$style = '';
-		foreach ( static::get( 'color' ) as $item => $value ) {
+		foreach ( static::get( 'color', null, array() ) as $item => $value ) {
 			$style .= "\n.has-$item-background-color { background-color: var(--bs-$item) }";
 			if ( $admin ) {
 				$fill   = self::is_light( $value ) ? 'dark' : 'light';
