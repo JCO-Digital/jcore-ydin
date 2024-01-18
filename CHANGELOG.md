@@ -1,3 +1,12 @@
+## [3.4.1](https://github.com/JCO-Digital/jcore-ydin/compare/v3.4.0...v3.4.1) (2024-01-18)
+
+
+### Bug Fixes
+
+* Fixed an issue where empty values caused warnings 🐛 ([3623466](https://github.com/JCO-Digital/jcore-ydin/commit/3623466391e99794ff833ffb176dace80802c4b9))
+
+
+
 # [3.4.0](https://github.com/JCO-Digital/jcore-ydin/compare/v3.3.2...v3.4.0) (2024-01-18)
 
 
