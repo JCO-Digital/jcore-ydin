@@ -33,7 +33,7 @@ class Customizer extends Option {
 	 */
 	public static function init(): void {
 		parent::init();
-		add_action( 'customize_register', '\jcore\Customizer::customize_register' );
+		add_action( 'customize_register', '\Jcore\Ydin\Settings\Customizer::customize_register' );
 	}
 
 	/**
