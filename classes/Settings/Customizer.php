@@ -11,7 +11,7 @@ use WP_Customize_Media_Control;
  * Use the add_section method to add a section to the customizer.
  *
  * @since 3.0.0
- * @since 3.5.0 Added the add_section method.
+ * @since 3.4.1 Added the add_section method.
  */
 class Customizer extends Option {
 
