@@ -50,5 +50,4 @@ class Taxonomy {
 
 		register_taxonomy( $slug, $post_types, $parsed_args );
 	}
-
 }

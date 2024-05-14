@@ -49,5 +49,4 @@ class PostType {
 
 		register_post_type( $slug, $parsed_args );
 	}
-
 }
