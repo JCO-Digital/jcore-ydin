@@ -1,3 +1,12 @@
+## [3.5.2](https://github.com/JCO-Digital/jcore-ydin/compare/v3.5.1...v3.5.2) (2024-09-23)
+
+
+### Bug Fixes
+
+* Conditional call to autoloader. ([3cbd157](https://github.com/JCO-Digital/jcore-ydin/commit/3cbd1578b9dde56519e1fb3074c41a109c8fdbc7))
+
+
+
 # [3.5.0](https://github.com/JCO-Digital/jcore-ydin/compare/v3.4.1...v3.5.0) (2024-01-18)
 
 
@@ -22,24 +31,6 @@
 ### Features
 
 * **make:** Added make file ([ba8ef67](https://github.com/JCO-Digital/jcore-ydin/commit/ba8ef67a14c04b538cdc549f3e5202c54eaec3a5))
-
-
-
-## [3.3.2](https://github.com/JCO-Digital/jcore-ydin/compare/v3.3.1...v3.3.2) (2024-01-08)
-
-
-### Bug Fixes
-
-* Formatting ([9908841](https://github.com/JCO-Digital/jcore-ydin/commit/990884130feaabb41fbd527399a4627948cc8f86))
-
-
-
-## [3.3.1](https://github.com/JCO-Digital/jcore-ydin/compare/v3.3.0...v3.3.1) (2023-11-28)
-
-
-### Bug Fixes
-
-* Initialized $instance, changed $version default from null to '' ([8995a95](https://github.com/JCO-Digital/jcore-ydin/commit/8995a95f7a369c9390adc741bcb16ec7eac83103))
 
 
 
