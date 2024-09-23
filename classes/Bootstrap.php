@@ -5,7 +5,10 @@ namespace Jcore\Ydin;
 use Jcore\Ydin\Settings\Customizer;
 use Timber\Timber;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+$autoloader = __DIR__ . '/../vendor/autoload.php';
+if ( file_exists( $autoloader ) ) {
+	require_once $autoloader;
+}
 
 /**
  * The bootstrap class, should be used by all dependencies.
