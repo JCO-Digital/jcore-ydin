@@ -1,3 +1,12 @@
+# [3.7.0](https://github.com/JCO-Digital/jcore-ydin/compare/v3.6.0...v3.7.0) (2024-09-24)
+
+
+### Features
+
+* **acf-blocks:** Add loading of ACF blocks. ✨ ([bad0a77](https://github.com/JCO-Digital/jcore-ydin/commit/bad0a776fbee3b0bdc71854960bfea267afbade8))
+
+
+
 # [3.6.0](https://github.com/JCO-Digital/jcore-ydin/compare/v3.5.2...v3.6.0) (2024-09-24)
 
 
@@ -22,15 +31,6 @@
 ### Features
 
 * **bootstrap:** Added a Bootstrap interface, to have a uniform way to bootstrap all modules. Closes [#18](https://github.com/JCO-Digital/jcore-ydin/issues/18) ✨ ([63d900e](https://github.com/JCO-Digital/jcore-ydin/commit/63d900e51dc1ba78aa024eacee91106546919ab9))
-
-
-
-## [3.4.1](https://github.com/JCO-Digital/jcore-ydin/compare/v3.4.0...v3.4.1) (2024-01-18)
-
-
-### Bug Fixes
-
-* Fixed an issue where empty values caused warnings 🐛 ([3623466](https://github.com/JCO-Digital/jcore-ydin/commit/3623466391e99794ff833ffb176dace80802c4b9))
 
 
 
