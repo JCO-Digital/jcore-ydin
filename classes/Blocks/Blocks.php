@@ -34,7 +34,10 @@ class Blocks {
 		 */
 		$blocks = apply_filters( 'jcore_blocks_get_blocks', self::list_blocks() );
 		foreach ( $blocks as $block_class ) {
-			$class_name = '\Jcore\Blocks\Blocks\\' . $block_class;
+			if ( is_readable( $block_class['path'] ) ) {
+				require_once $block_class['path'];
+			}
+			$class_name = $block_class['class'];
 			if ( class_exists( $class_name ) ) {
 				new $class_name();
 			}
@@ -45,10 +48,11 @@ class Blocks {
 	 * List all custom blocks in themes blocks folder.
 	 *
 	 * @param string $folder Folder to scan for blocks, defaults to child /blocks folder.
+	 * @param string $class_prefix The class namespace.
 	 *
 	 * @return array
 	 */
-	public static function list_blocks( string $folder = '' ): array {
+	public static function list_blocks( string $folder = '', string $class_prefix = 'Jcore\Ydin\Blocks\\' ): array {
 		if ( empty( $folder ) ) {
 			return array();
 		}
@@ -56,7 +60,10 @@ class Blocks {
 		if ( is_dir( $folder ) ) {
 			foreach ( scandir( $folder ) as $file ) {
 				if ( preg_match( '/([^.]+)\.php/', $file, $matches ) ) {
-					$blocks[] = $matches[1];
+					$blocks[] = array(
+						'class' => $class_prefix . $matches[1],
+						'path'  => trailingslashit( $folder ) . $file,
+					);
 				}
 			}
 		}
