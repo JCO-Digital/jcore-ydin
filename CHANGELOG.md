@@ -1,3 +1,12 @@
+# [3.6.0](https://github.com/JCO-Digital/jcore-ydin/compare/v3.5.2...v3.6.0) (2024-09-24)
+
+
+### Features
+
+* Added a timber location helper function :sparkles: ([b1ed8e8](https://github.com/JCO-Digital/jcore-ydin/commit/b1ed8e82d1f06aeddab8ae5780d2dab992367f5b))
+
+
+
 ## [3.5.2](https://github.com/JCO-Digital/jcore-ydin/compare/v3.5.1...v3.5.2) (2024-09-23)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * Fixed an issue where empty values caused warnings 🐛 ([3623466](https://github.com/JCO-Digital/jcore-ydin/commit/3623466391e99794ff833ffb176dace80802c4b9))
-
-
-
-# [3.4.0](https://github.com/JCO-Digital/jcore-ydin/compare/v3.3.2...v3.4.0) (2024-01-18)
-
-
-### Features
-
-* **make:** Added make file ([ba8ef67](https://github.com/JCO-Digital/jcore-ydin/commit/ba8ef67a14c04b538cdc549f3e5202c54eaec3a5))
 
 
 
