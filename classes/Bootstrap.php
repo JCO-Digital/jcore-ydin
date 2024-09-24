@@ -4,6 +4,7 @@ namespace Jcore\Ydin;
 
 use Jcore\Ydin\Settings\Customizer;
 use Timber\Timber;
+use Jcore\Ydin\Blocks\Blocks;
 
 $autoloader = __DIR__ . '/../vendor/autoload.php';
 if ( file_exists( $autoloader ) ) {
@@ -27,6 +28,7 @@ class Bootstrap implements BootstrapInterface {
 	private function __construct() {
 		Timber::init();
 		Customizer::init();
+		Blocks::init();
 	}
 
 	/**
