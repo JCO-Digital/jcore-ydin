@@ -1,3 +1,12 @@
+## [3.7.1](https://github.com/JCO-Digital/jcore-ydin/compare/v3.7.0...v3.7.1) (2024-09-24)
+
+
+### Bug Fixes
+
+* **acf-blocks:** Require the file so class exists. 🐛 ([14b5ebe](https://github.com/JCO-Digital/jcore-ydin/commit/14b5ebeffc6630e6474f320bd56a29f486fc7ede))
+
+
+
 # [3.7.0](https://github.com/JCO-Digital/jcore-ydin/compare/v3.6.0...v3.7.0) (2024-09-24)
 
 
@@ -22,15 +31,6 @@
 ### Bug Fixes
 
 * Conditional call to autoloader. ([3cbd157](https://github.com/JCO-Digital/jcore-ydin/commit/3cbd1578b9dde56519e1fb3074c41a109c8fdbc7))
-
-
-
-# [3.5.0](https://github.com/JCO-Digital/jcore-ydin/compare/v3.4.1...v3.5.0) (2024-01-18)
-
-
-### Features
-
-* **bootstrap:** Added a Bootstrap interface, to have a uniform way to bootstrap all modules. Closes [#18](https://github.com/JCO-Digital/jcore-ydin/issues/18) ✨ ([63d900e](https://github.com/JCO-Digital/jcore-ydin/commit/63d900e51dc1ba78aa024eacee91106546919ab9))
 
 
 
