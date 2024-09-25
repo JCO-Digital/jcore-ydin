@@ -1,3 +1,12 @@
+## [3.7.2](https://github.com/JCO-Digital/jcore-ydin/compare/v3.7.1...v3.7.2) (2024-09-25)
+
+
+### Bug Fixes
+
+* **helpers:** Added optional argument to specify priority of the timber locations. 🩹 ([5d63e9c](https://github.com/JCO-Digital/jcore-ydin/commit/5d63e9c2822dac2d54a686ee8234525ddb67dd76))
+
+
+
 ## [3.7.1](https://github.com/JCO-Digital/jcore-ydin/compare/v3.7.0...v3.7.1) (2024-09-24)
 
 
