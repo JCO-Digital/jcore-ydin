@@ -15,7 +15,7 @@ namespace Jcore\Ydin;
  *
  * @return void
  * @since 3.6.0 Added the function.
- * @since 3.6.1 Added the priority parameter.
+ * @since 3.7.2 Added the priority parameter.
  */
 function register_timber_location( string $path, $priority = 10 ): void {
 	if ( ! is_dir( $path ) ) {
