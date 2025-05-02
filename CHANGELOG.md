@@ -1,3 +1,12 @@
+# [3.8.0](https://github.com/JCO-Digital/jcore-ydin/compare/v3.7.2...v3.8.0) (2025-05-02)
+
+
+### Features
+
+* Added action "environment_changed" that triggers when wp_get_environment_type returns different  value. ([5fb0ee1](https://github.com/JCO-Digital/jcore-ydin/commit/5fb0ee14be095c3319fdfe238bb85b99f9c97b33))
+
+
+
 ## [3.7.2](https://github.com/JCO-Digital/jcore-ydin/compare/v3.7.1...v3.7.2) (2024-09-25)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * Added a timber location helper function :sparkles: ([b1ed8e8](https://github.com/JCO-Digital/jcore-ydin/commit/b1ed8e82d1f06aeddab8ae5780d2dab992367f5b))
-
-
-
-## [3.5.2](https://github.com/JCO-Digital/jcore-ydin/compare/v3.5.1...v3.5.2) (2024-09-23)
-
-
-### Bug Fixes
-
-* Conditional call to autoloader. ([3cbd157](https://github.com/JCO-Digital/jcore-ydin/commit/3cbd1578b9dde56519e1fb3074c41a109c8fdbc7))
 
 
 
