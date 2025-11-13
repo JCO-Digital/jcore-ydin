@@ -4,8 +4,8 @@ namespace Jcore\Ydin;
 
 use Timber\Timber;
 use Jcore\Ydin\Settings\Customizer;
-use Jcore\Ydin\Blocks\Blocks;
 use Jcore\Ydin\Environment\Environment;
+use Jcore\Ydin\Timber\ContextProvider;
 
 $autoloader = __DIR__ . '/../vendor/autoload.php';
 if ( file_exists( $autoloader ) ) {
@@ -29,8 +29,8 @@ class Bootstrap implements BootstrapInterface {
 	private function __construct() {
 		Timber::init();
 		Customizer::init();
-		Blocks::init();
 		Environment::init();
+		ContextProvider::init();
 	}
 
 	/**
