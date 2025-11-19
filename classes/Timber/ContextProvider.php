@@ -2,11 +2,11 @@
 namespace Jcore\Ydin\Timber;
 
 use Timber\Timber;
+use Twig\Environment;
 use Twig\TwigFunction;
 use Twig\TwigFilter;
 
 class ContextProvider {
-
 	public static function init() {
 		// Timber context hook.
 		add_filter( 'timber/context', 'Jcore\Ydin\Timber\ContextProvider::context', 10 );
@@ -88,6 +88,21 @@ class ContextProvider {
 		$twig->addFilter( new TwigFilter( 'preview', 'Jcore\Ydin\Timber\ContextProvider::post_preview' ) );
 		$twig->addFilter( new TwigFilter( 'shorten', 'Jcore\Ydin\Timber\ContextProvider::title_trim' ) );
 		$twig->addFilter( new TwigFilter( 'tease_class', 'Jcore\Ydin\Timber\ContextProvider::tease_class' ) );
+
+		// This has to be inline, due to the way Environment is passed to the function.
+		// This function should be used to call functions that may not be available, as checking their existence is not possible in Twig.
+		// @see https://stackoverflow.com/a/48294377
+		$twig->addFunction( new TwigFunction( 'try_fn', function ( Environment $twig, string $name, ...$args ) {
+			if ( ! $twig->getFunction( $name ) instanceof TwigFunction ) {
+				return '';
+			}
+			try {
+				return $twig->getFunction( $name )->getCallable()( ...$args );
+			} catch ( \Exception $e ) {
+				error_log( $e->getMessage() . ' in ' . $e->getFile() . ' on line ' . $e->getLine() );
+				return '';
+			}
+		}, array( 'needs_environment' => true, 'is_safe' => array( 'html' ) ) ) );
 
 		$twig->addTest(
 			new \Twig\TwigTest(
