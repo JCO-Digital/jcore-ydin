@@ -1,3 +1,12 @@
+## [4.1.1](https://github.com/JCO-Digital/jcore-ydin/compare/v4.1.0...v4.1.1) (2025-12-11)
+
+
+### Bug Fixes
+
+* **ci:** Pin Commitsar action to version 0.20.0 in workflow ([50c9da2](https://github.com/JCO-Digital/jcore-ydin/commit/50c9da26c600a916e91c6f7a6ba9cb370d9a6023))
+
+
+
 # [4.1.0](https://github.com/JCO-Digital/jcore-ydin/compare/v4.0.0...v4.1.0) (2025-11-19)
 
 
@@ -26,15 +35,6 @@
 ### Bug Fixes
 
 * **helpers:** Added optional argument to specify priority of the timber locations. 🩹 ([5d63e9c](https://github.com/JCO-Digital/jcore-ydin/commit/5d63e9c2822dac2d54a686ee8234525ddb67dd76))
-
-
-
-## [3.7.1](https://github.com/JCO-Digital/jcore-ydin/compare/v3.7.0...v3.7.1) (2024-09-24)
-
-
-### Bug Fixes
-
-* **acf-blocks:** Require the file so class exists. 🐛 ([14b5ebe](https://github.com/JCO-Digital/jcore-ydin/commit/14b5ebeffc6630e6474f320bd56a29f486fc7ede))
 
 
 
