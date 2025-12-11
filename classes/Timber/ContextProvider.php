@@ -119,6 +119,7 @@ class ContextProvider {
 			$twig->addFunction(
 				new TwigFunction(
 					'jcore_global_content',
+					// Stub function: returns an empty string as a no-op fallback when jcore-maailma is not available.
 					function () {
 						return '';
 					}
