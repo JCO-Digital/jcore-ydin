@@ -11,7 +11,7 @@ jobs:
           fetch-depth: 0
 
       - name: Commitsar check
-        uses: docker://aevea/commitsar
+        uses: docker://aevea/commitsar:0.20.0
 
       - uses: php-actions/composer@v6
         with:

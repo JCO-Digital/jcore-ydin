@@ -113,6 +113,20 @@ class ContextProvider {
 			)
 		);
 
+		// Fill stub functions for missing Jcore modules / plugins.
+		$loaded_plugins = apply_filters( 'jcore_plugins_loaded', array() );
+		if ( empty( $loaded_plugins['jcore-maailma'] ) ) {
+			$twig->addFunction(
+				new TwigFunction(
+					'jcore_global_content',
+					// Stub function: returns an empty string as a no-op fallback when jcore-maailma is not available.
+					function () {
+						return '';
+					}
+				)
+			);
+		}
+
 		return $twig;
 	}
 
