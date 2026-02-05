@@ -92,17 +92,26 @@ class ContextProvider {
 		// This has to be inline, due to the way Environment is passed to the function.
 		// This function should be used to call functions that may not be available, as checking their existence is not possible in Twig.
 		// @see https://stackoverflow.com/a/48294377
-		$twig->addFunction( new TwigFunction( 'try_fn', function ( Environment $twig, string $name, ...$args ) {
-			if ( ! $twig->getFunction( $name ) instanceof TwigFunction ) {
-				return '';
-			}
-			try {
-				return $twig->getFunction( $name )->getCallable()( ...$args );
-			} catch ( \Exception $e ) {
-				error_log( $e->getMessage() . ' in ' . $e->getFile() . ' on line ' . $e->getLine() );
-				return '';
-			}
-		}, array( 'needs_environment' => true, 'is_safe' => array( 'html' ) ) ) );
+		$twig->addFunction(
+			new TwigFunction(
+				'try_fn',
+				function ( Environment $twig, string $name, ...$args ) {
+					if ( ! $twig->getFunction( $name ) instanceof TwigFunction ) {
+						return '';
+					}
+					try {
+						return $twig->getFunction( $name )->getCallable()( ...$args );
+					} catch ( \Exception $e ) {
+						error_log( $e->getMessage() . ' in ' . $e->getFile() . ' on line ' . $e->getLine() );
+						return '';
+					}
+				},
+				array(
+					'needs_environment' => true,
+					'is_safe'           => array( 'html' ),
+				)
+			)
+		);
 
 		$twig->addTest(
 			new \Twig\TwigTest(
