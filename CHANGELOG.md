@@ -1,3 +1,12 @@
+# [4.2.0](https://github.com/JCO-Digital/jcore-ydin/compare/v4.1.1...v4.2.0) (2026-02-05)
+
+
+### Features
+
+* Add security hardening measures ([ae22939](https://github.com/JCO-Digital/jcore-ydin/commit/ae2293930564e0eba560dd38897023993bfeee1b))
+
+
+
 ## [4.1.1](https://github.com/JCO-Digital/jcore-ydin/compare/v4.1.0...v4.1.1) (2025-12-11)
 
 
@@ -26,15 +35,6 @@
 ### Features
 
 * Added action "environment_changed" that triggers when wp_get_environment_type returns different  value. ([5fb0ee1](https://github.com/JCO-Digital/jcore-ydin/commit/5fb0ee14be095c3319fdfe238bb85b99f9c97b33))
-
-
-
-## [3.7.2](https://github.com/JCO-Digital/jcore-ydin/compare/v3.7.1...v3.7.2) (2024-09-25)
-
-
-### Bug Fixes
-
-* **helpers:** Added optional argument to specify priority of the timber locations. 🩹 ([5d63e9c](https://github.com/JCO-Digital/jcore-ydin/commit/5d63e9c2822dac2d54a686ee8234525ddb67dd76))
 
 
 
