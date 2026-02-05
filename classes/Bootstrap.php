@@ -3,9 +3,10 @@
 namespace Jcore\Ydin;
 
 use Timber\Timber;
+use Jcore\Ydin\Timber\ContextProvider;
 use Jcore\Ydin\Settings\Customizer;
 use Jcore\Ydin\Environment\Environment;
-use Jcore\Ydin\Timber\ContextProvider;
+use Jcore\Ydin\Security\Hardening;
 
 $autoloader = __DIR__ . '/../vendor/autoload.php';
 if ( file_exists( $autoloader ) ) {
@@ -28,9 +29,11 @@ class Bootstrap implements BootstrapInterface {
 	 */
 	private function __construct() {
 		Timber::init();
+		ContextProvider::init();
+
 		Customizer::init();
 		Environment::init();
-		ContextProvider::init();
+		Hardening::init();
 	}
 
 	/**
