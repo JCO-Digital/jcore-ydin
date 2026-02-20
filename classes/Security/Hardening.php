@@ -9,7 +9,7 @@ namespace Jcore\Ydin\Security;
 
 class Hardening {
 	static function init() {
-		// Block REST API user endpoint for non-logged-in users
+		// Block REST API user endpoint for non-logged-in users.
 		add_filter(
 			'rest_authentication_errors',
 			array( __CLASS__, 'block_user_enumeration' )
@@ -17,8 +17,12 @@ class Hardening {
 	}
 
 	static function block_user_enumeration( $result ) {
-		// Skip if a previous authentication check was applied
+		// Skip if a previous authentication check was applied.
 		if ( ! empty( $result ) ) {
+			return $result;
+		}
+		// Allow OPTIONS requests for CORS preflight.
+		if ( $_SERVER['REQUEST_METHOD'] === 'OPTIONS' ) {
 			return $result;
 		}
 
