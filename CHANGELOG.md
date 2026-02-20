@@ -1,3 +1,12 @@
+## [4.2.1](https://github.com/JCO-Digital/jcore-ydin/compare/v4.2.0...v4.2.1) (2026-02-20)
+
+
+### Bug Fixes
+
+* Allow OPTIONS for REST user block ([3764134](https://github.com/JCO-Digital/jcore-ydin/commit/37641345089bf708a760fb57572d037dcce91a99))
+
+
+
 # [4.2.0](https://github.com/JCO-Digital/jcore-ydin/compare/v4.1.1...v4.2.0) (2026-02-05)
 
 
@@ -26,15 +35,6 @@
 
 
 # [4.0.0](https://github.com/JCO-Digital/jcore-ydin/compare/v3.8.0...v4.0.0) (2025-11-13)
-
-
-
-# [3.8.0](https://github.com/JCO-Digital/jcore-ydin/compare/v3.7.2...v3.8.0) (2025-05-02)
-
-
-### Features
-
-* Added action "environment_changed" that triggers when wp_get_environment_type returns different  value. ([5fb0ee1](https://github.com/JCO-Digital/jcore-ydin/commit/5fb0ee14be095c3319fdfe238bb85b99f9c97b33))
 
 
 
