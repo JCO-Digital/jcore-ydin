@@ -21,8 +21,8 @@ class Hardening {
 		if ( ! empty( $result ) ) {
 			return $result;
 		}
-		// Allow OPTIONS requests for CORS preflight.
-		if ( $_SERVER['REQUEST_METHOD'] === 'OPTIONS' ) {
+		// Allow OPTIONS requests for CORS preflight on the users endpoint.
+		if ( $_SERVER['REQUEST_METHOD'] === 'OPTIONS' && strpos( $_SERVER['REQUEST_URI'], '/wp-json/wp/v2/users' ) !== false ) {
 			return $result;
 		}
 
