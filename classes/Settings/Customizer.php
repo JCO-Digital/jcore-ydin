@@ -1,4 +1,9 @@
 <?php
+/**
+ * Customizer settings handler.
+ *
+ * @package Jcore\Ydin\Settings
+ */
 
 namespace Jcore\Ydin\Settings;
 
@@ -266,12 +271,12 @@ class Customizer extends Option {
 	 * Get individual value.
 	 *
 	 * @param string $field_name Field name.
-	 * @param mixed  $default    Default value.
+	 * @param mixed  $fallback   Fallback value.
 	 *
 	 * @return mixed
 	 */
-	protected static function get_value( string $field_name, mixed $default ): mixed {
-		return get_theme_mod( $field_name, $default );
+	protected static function get_value( string $field_name, mixed $fallback ): mixed {
+		return get_theme_mod( $field_name, $fallback );
 	}
 
 	/**

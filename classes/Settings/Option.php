@@ -1,7 +1,17 @@
 <?php
+/**
+ * Abstract class for settings options.
+ *
+ * @package Jcore\Ydin\Settings
+ */
 
 namespace Jcore\Ydin\Settings;
 
+/**
+ * Class Option
+ *
+ * Abstract base class for handling options and settings.
+ */
 abstract class Option {
 	/**
 	 * Array that contains the "saved" settings.
@@ -86,13 +96,13 @@ abstract class Option {
 	/**
 	 * Check value and return it if available.
 	 *
-	 * @param string $group Group name.
-	 * @param string|null $field Field name.
-	 * @param mixed|null $default The default value to return.
+	 * @param string      $group    Group name.
+	 * @param string|null $field    Field name.
+	 * @param mixed|null  $fallback The fallback value to return.
 	 *
 	 * @return mixed
 	 */
-	public static function get( string $group, string $field = null, mixed $default = null ): mixed {
+	public static function get( string $group, ?string $field = null, mixed $fallback = null ): mixed {
 		if ( null === $field ) {
 			// Get the entire group.
 			if ( static::check_group( $group, true ) ) {
@@ -102,7 +112,7 @@ abstract class Option {
 			return static::$data[ $group ][ $field ];
 		}
 
-		return $default;
+		return $fallback;
 	}
 
 	/**
@@ -153,9 +163,9 @@ abstract class Option {
 	 * Method to get individual value.
 	 *
 	 * @param string $field_name The field name.
-	 * @param mixed  $default    The Default value.
+	 * @param mixed  $fallback   The fallback value.
 	 *
 	 * @return mixed
 	 */
-	abstract protected static function get_value( string $field_name, mixed $default ): mixed;
+	abstract protected static function get_value( string $field_name, mixed $fallback ): mixed;
 }
