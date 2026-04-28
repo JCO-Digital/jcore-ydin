@@ -102,7 +102,7 @@ abstract class Option {
 	 *
 	 * @return mixed
 	 */
-	public static function get( string $group, string $field = null, mixed $fallback = null ): mixed {
+	public static function get( string $group, ?string $field = null, mixed $fallback = null ): mixed {
 		if ( null === $field ) {
 			// Get the entire group.
 			if ( static::check_group( $group, true ) ) {
