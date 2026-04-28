@@ -6,7 +6,6 @@ use Timber\Timber;
 use Jcore\Ydin\Timber\ContextProvider;
 use Jcore\Ydin\Settings\Customizer;
 use Jcore\Ydin\Environment\Environment;
-use Jcore\Ydin\Security\Hardening;
 
 $autoloader = __DIR__ . '/../vendor/autoload.php';
 if ( file_exists( $autoloader ) ) {
@@ -33,7 +32,6 @@ class Bootstrap implements BootstrapInterface {
 
 		Customizer::init();
 		Environment::init();
-		Hardening::init();
 	}
 
 	/**

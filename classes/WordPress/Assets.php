@@ -1,4 +1,9 @@
 <?php
+/**
+ * Utility functions for handling assets.
+ *
+ * @package Jcore\Ydin\WordPress
+ */
 
 namespace Jcore\Ydin\WordPress;
 
