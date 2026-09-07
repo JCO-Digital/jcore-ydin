@@ -238,7 +238,7 @@ abstract class Block {
 		$context['block']      = $block; // Block metadata goes to block context.
 		$context['is_preview'] = $is_preview; // If we are currently in a preview or not.
 
-		$render_context   = $this->populate_context( $context, get_fields() );
+		$render_context   = $this->populate_context( $context, get_fields() ?: array() );
 		$render_templates = $this->get_templates( $render_context );
 
 		$this->load_script( $this->script_name, $this->script_path );
