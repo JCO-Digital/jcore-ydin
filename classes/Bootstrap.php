@@ -4,9 +4,7 @@ namespace Jcore\Ydin;
 
 use Timber\Timber;
 use Jcore\Ydin\Timber\ContextProvider;
-use Jcore\Ydin\Settings\Customizer;
 use Jcore\Ydin\Environment\Environment;
-use Jcore\Ydin\Security\Hardening;
 
 $autoloader = __DIR__ . '/../vendor/autoload.php';
 if ( file_exists( $autoloader ) ) {
@@ -15,6 +13,10 @@ if ( file_exists( $autoloader ) ) {
 
 /**
  * The bootstrap class, should be used by all dependencies.
+ *
+ * This starts the parts of Ydin that every project needs: Timber, the Timber
+ * context and the environment handler. Everything else in Ydin is opt-in, and
+ * initialized by the theme with `Feature::init()`.
  */
 class Bootstrap implements BootstrapInterface {
 	/**
@@ -30,10 +32,9 @@ class Bootstrap implements BootstrapInterface {
 	private function __construct() {
 		Timber::init();
 		ContextProvider::init();
-
-		Customizer::init();
 		Environment::init();
-		Hardening::init();
+
+		add_action( 'init', array( __CLASS__, 'load_modules' ) );
 	}
 
 	/**
@@ -47,5 +48,28 @@ class Bootstrap implements BootstrapInterface {
 		}
 
 		return self::$instance;
+	}
+
+	/**
+	 * Initialize every module registered through the `jcore_theme_load_modules` filter.
+	 *
+	 * A module is any class name implementing a static `init()` method, which is
+	 * what the JCORE plugin bootstraps do.
+	 *
+	 * @return void
+	 */
+	public static function load_modules(): void {
+		$modules = (array) apply_filters( 'jcore_theme_load_modules', array() );
+		$loaded  = array();
+
+		foreach ( $modules as $module ) {
+			if ( ! class_exists( $module ) || ! method_exists( $module, 'init' ) ) {
+				continue;
+			}
+			$module::init();
+			$loaded[] = $module;
+		}
+
+		do_action( 'jcore_modules_loaded', $loaded );
 	}
 }

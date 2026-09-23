@@ -1,4 +1,10 @@
 <?php
+/**
+ * Context provider for Timber.
+ *
+ * @package Jcore\Ydin\Timber
+ */
+
 namespace Jcore\Ydin\Timber;
 
 use Timber\Timber;
@@ -6,7 +12,17 @@ use Twig\Environment;
 use Twig\TwigFunction;
 use Twig\TwigFilter;
 
+/**
+ * Class ContextProvider
+ *
+ * Provides context for Timber.
+ */
 class ContextProvider {
+	/**
+	 * Initialize the context provider.
+	 *
+	 * @return void
+	 */
 	public static function init() {
 		// Timber context hook.
 		add_filter( 'timber/context', 'Jcore\Ydin\Timber\ContextProvider::context', 10 );
@@ -54,12 +70,15 @@ class ContextProvider {
 			$context['language'] = substr( get_locale(), 0, 2 );
 		}
 
-		if ( empty( $_SERVER['HTTP_REFERER'] ) ) {
+		$referer = isset( $_SERVER['HTTP_REFERER'] ) ? esc_url_raw( wp_unslash( $_SERVER['HTTP_REFERER'] ) ) : '';
+		$host    = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
+
+		if ( empty( $referer ) ) {
 			$context['referrer']          = '';
 			$context['referrer_internal'] = 0;
 		} else {
-			$context['referrer']          = wp_unslash( esc_url( $_SERVER['HTTP_REFERER'] ) );
-			$context['referrer_internal'] = strpos( $_SERVER['HTTP_REFERER'], $_SERVER['HTTP_HOST'] ) ? 1 : 0;
+			$context['referrer']          = esc_url( $referer );
+			$context['referrer_internal'] = ( ! empty( $host ) && strpos( $referer, $host ) !== false ) ? 1 : 0;
 		}
 
 		// Yoast breadcrumbs.
@@ -91,7 +110,7 @@ class ContextProvider {
 
 		// This has to be inline, due to the way Environment is passed to the function.
 		// This function should be used to call functions that may not be available, as checking their existence is not possible in Twig.
-		// @see https://stackoverflow.com/a/48294377
+		// @see https://stackoverflow.com/a/48294377.
 		$twig->addFunction(
 			new TwigFunction(
 				'try_fn',
@@ -102,6 +121,7 @@ class ContextProvider {
 					try {
 						return $twig->getFunction( $name )->getCallable()( ...$args );
 					} catch ( \Exception $e ) {
+						// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 						error_log( $e->getMessage() . ' in ' . $e->getFile() . ' on line ' . $e->getLine() );
 						return '';
 					}
