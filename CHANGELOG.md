@@ -1,6 +1,6 @@
 # Changelog
 
-### 5.0.0-beta.1 (2026-09-22)
+## 5.0.0 (2026-09-23)
 
 #### Features
 
@@ -9,6 +9,16 @@
 #### Refactor
 
 - core: cleanup code and improve documentation (da7937e)
+
+#### Continuous Integration
+
+- github: set prerelease to false in release workflow (14751d5)
+- github: update workflow configurations for release and validation (6a96e9f)
+
+#### Maintenance
+
+- settings: remove customizer and ACF options classes (e8fc9ae)
+- config: add foonver configuration file (cc017c8)
 
 ### v4.2.1 (2026-02-20)
 
@@ -72,6 +82,12 @@
 #### Misc
 
 - Update version (2e3ce6f)
+
+### v3.8.1 (2026-09-07)
+
+#### Bug Fixes
+
+- blocks: coerce get_fields() false to empty array in populate_context (c35fb61)
 
 ## v3.8.0 (2025-05-02)
 
