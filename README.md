@@ -8,8 +8,8 @@ updated later belongs here rather than in the theme.
 ## Bootstrap
 
 `Bootstrap::init()` starts the parts every project needs — Timber, the Timber
-context, the Customizer and the environment handler — and loads the modules
-registered through the `jcore_theme_load_modules` filter.
+context and the environment handler — and loads the modules registered through
+the `jcore_theme_load_modules` filter.
 
 ```php
 use Jcore\Ydin;
@@ -32,11 +32,8 @@ Calling `init()` twice is a no-op.
 
 | Feature | What it does |
 | --- | --- |
-| `Settings\AcfOptions` | ACF options pages built from a filterable array (`jcore_init_settings_fields`). Ships the "Keys & IDs" group. |
-| `Settings\Customizer` | Customizer sections and the colour controls. Started by `Bootstrap`. |
 | `WordPress\Acf` | Stores ACF field groups, post types and taxonomies as JSON in the theme, under readable file names. |
 | `WordPress\Admin` | Loads the theme's admin stylesheet. |
-| `WordPress\Analytics` | Google Analytics, Google Tag Manager and Matomo snippets, from the Keys & IDs settings. |
 | `WordPress\Blocks` | Registers every built block in the theme's `dist/blocks`, adds the JCORE block category. |
 | `WordPress\Comments` | Turns comments off across front end, admin and REST. |
 | `WordPress\Editor` | Block editor policy: restricted blocks and variations, spacer styles, core pattern removal. |
@@ -61,7 +58,6 @@ for most often:
 | Filter | Purpose |
 | --- | --- |
 | `jcore_menus` | The navigation menus to register and expose to Timber. |
-| `jcore_init_settings_fields` | Add groups and fields to the ACF options pages. |
 | `jcore_theme_load_modules` | Modules (plugin bootstraps) to initialize. |
 | `jcore_restricted_blocks` | Core blocks to remove from the inserter. |
 | `jcore_restricted_block_variations` | Block variations to remove, keyed by block. |
@@ -71,4 +67,3 @@ for most often:
 | `jcore_inline_svg_logo` | Replace an SVG custom logo with the inline SVG. |
 | `jcore_upload_mimes` / `jcore_jpeg_quality` | Upload and image handling. |
 | `jcore_local_mail_host` / `jcore_local_mail_port` | Where local mail is caught. |
-| `jcore_analytics_enabled` / `jcore_analytics_skip_logged_in` | When analytics are printed. |

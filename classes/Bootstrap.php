@@ -4,7 +4,6 @@ namespace Jcore\Ydin;
 
 use Timber\Timber;
 use Jcore\Ydin\Timber\ContextProvider;
-use Jcore\Ydin\Settings\Customizer;
 use Jcore\Ydin\Environment\Environment;
 
 $autoloader = __DIR__ . '/../vendor/autoload.php';
@@ -16,8 +15,8 @@ if ( file_exists( $autoloader ) ) {
  * The bootstrap class, should be used by all dependencies.
  *
  * This starts the parts of Ydin that every project needs: Timber, the Timber
- * context, the Customizer and the environment handler. Everything else in Ydin is
- * opt-in, and initialized by the theme with `Feature::init()`.
+ * context and the environment handler. Everything else in Ydin is opt-in, and
+ * initialized by the theme with `Feature::init()`.
  */
 class Bootstrap implements BootstrapInterface {
 	/**
@@ -33,8 +32,6 @@ class Bootstrap implements BootstrapInterface {
 	private function __construct() {
 		Timber::init();
 		ContextProvider::init();
-
-		Customizer::init();
 		Environment::init();
 
 		add_action( 'init', array( __CLASS__, 'load_modules' ) );
